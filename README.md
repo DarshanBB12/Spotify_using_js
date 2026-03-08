@@ -92,7 +92,7 @@ This project helped me learn:
 
 ~Live Demo
   You can view the live project here:
-   https://your-username.github.io/spotify-clone/
+  https://darshanbb12.github.io/Spotify_using_js/
 
 ~Author
  Darshan Dhanu
