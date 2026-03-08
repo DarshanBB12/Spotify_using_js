@@ -17,6 +17,8 @@ let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let masterSongName = document.getElementById('masterSongName');
+let heartEmoji = document.getElementById('heartEmoji');
+let popupHeart = document.getElementById('popupHeart');
 let songItems;
 
 gif.style.opacity = 0; // initial opacity
@@ -74,6 +76,9 @@ function selectSong(index) {
     // Add active class to selected song
     songItems[index].classList.add('active');
     
+    // Show broken heart since song is not playing
+    heartEmoji.textContent = '💔';
+    
     // If currently playing, pause
     if (!audioElement.paused) {
         pauseSong();
@@ -95,6 +100,9 @@ function playSong() {
     masterPlay.classList.remove("fa-play");
     masterPlay.classList.add("fa-pause");
     gif.style.opacity = 1;
+    heartEmoji.textContent = '❤️';
+    // show popup heart
+    showPopup('❤️');
 }
 
 // Pause song function
@@ -103,6 +111,9 @@ function pauseSong() {
     masterPlay.classList.add("fa-play");
     masterPlay.classList.remove("fa-pause");
     gif.style.opacity = 0;
+    heartEmoji.textContent = '💔';
+    // show broken popup
+    showPopup('💔');
 }
 
 // Progress bar update
@@ -117,6 +128,19 @@ audioElement.addEventListener("timeupdate", () => {
 myProgressBar.addEventListener('change', () => {
     audioElement.currentTime = myProgressBar.value * audioElement.duration / 100;
 });
+
+// show a temporary popup emoji near play button
+defaultPopupTimeout = null;
+function showPopup(symbol) {
+    if (!popupHeart) return;
+    popupHeart.textContent = symbol;
+    popupHeart.style.opacity = '1';
+    // clear previous timer if any
+    if (defaultPopupTimeout) clearTimeout(defaultPopupTimeout);
+    defaultPopupTimeout = setTimeout(() => {
+        popupHeart.style.opacity = '0';
+    }, 3000);
+}
 
 // Auto-play next song when current ends
 audioElement.addEventListener('ended', () => {

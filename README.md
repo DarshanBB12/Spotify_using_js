@@ -9,7 +9,8 @@ A simple Spotify-like music player built using HTML, CSS, and JavaScript. This p
 - **Navigation**: Previous and Next buttons with hover effects
 - **Progress Bar**: Custom-styled progress bar with seek functionality
 - **Auto-Play**: Automatically plays the next song when current song ends
-- **Visual Feedback**: Playing GIF animation and icon state changes
+- **Visual Feedback**: Playing GIF animation, icon state changes, and heart emoji indicator
+- **Heart Emoji**: ❤️ when playing, 💔 when paused/stopped
 - **Responsive Design**: Works on different screen sizes
 - **Font Awesome Icons**: Properly implemented icons with hover effects
 
@@ -38,11 +39,12 @@ spotify using js/
 ## How to Use
 
 1. Open `index.html` or `spotifysong.html` in a web browser
-2. Click on any song in the list to **select** it (this loads the song but doesn't play it)
-3. Use the master play/pause button at the bottom to start/stop playback
-4. Use previous/next buttons to navigate between songs
-5. Drag the progress bar to seek within a song
-6. The player will automatically move to the next song when current song ends
+2. Click on any song in the list to **select** it (it gets highlighted with green)
+3. Use the master play/pause button to start/stop playback
+4. Watch the heart emoji: ❤️ when playing, 💔 when paused
+5. Use previous/next buttons to navigate between songs
+6. Drag the progress bar to seek within a song
+7. The player automatically moves to the next song when current song ends
 
 ## Technologies Used
 
